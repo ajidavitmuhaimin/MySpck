@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title></title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+<script>
+  //sample data as array
+  var x=[1,2,3,4,5];
+  var y=[2,4,5,4,5];
+  //finding mean value
+  //mean=sum+value/length
+  var mean=(array)=>{
+    return array.reduce((prev,next)=>prev+next)/array.length;
+  }
+  //calculate for find numerator and denominator value
+  var calculate=(x,y,meanX,meanY)=>{
+    //find numerator
+    var numerator=x.reduce((prev,next,index)=>prev+(next-meanX)*(y[index]-meanY),0);
+    //find denominator
+    var denominator=x.reduce((prev,next)=>Math.pow(next-meanX,2)+prev,0);
+    return {numerator,denominator};
+  }
+  //get slope and intercept data
+  var process=(numerator,denominator,meanX,meanY)=>{
+    var slope=numerator/denominator;
+    var intercept=meanY-slope*meanX;
+    return {slope,intercept};
+  }
+  var mxplusb=(newX,slope,intercept)=>{
+    return slope*newX+intercept;
+  }
+  
+  //test
+  var meanX=mean(x);
+  var meanY=mean(y);
+  var {numerator,denominator}=calculate(x,y,meanX,meanY);
+  var {slope,intercept}=process(numerator,denominator,meanX,meanY);
+  var result=mxplusb(0,slope,intercept);
+  console.log(result);
+</script>
