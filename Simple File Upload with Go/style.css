@@ -1,0 +1,46 @@
+html,body{
+  margin: 0;
+  width: 100vw;
+  height: 1000px;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: center;
+}
+#navbar{
+  position: fixed;
+  width: 100vw;
+  height: 70px;
+  background: #EFEFEF;
+  justify-content: space-evenly;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  z-index: 1;
+}
+#am,#gi{
+  background: transparent;
+  border: transparent;
+  font-weight: bold;
+}
+#box1{
+  width: 100vw;
+  height: 200px;
+  background: floralwhite;
+  align-content: center;
+  justify-items: center;
+}
+#box2{
+  width: 200px;
+  height: 200px;
+  background: ghostwhite;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: space-around;
+  align-content: space-around;
+}
+#preview{
+  width: 100px;
+  height: 100px;
+}
