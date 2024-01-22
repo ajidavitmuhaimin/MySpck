@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>TEF</title>
+</head>
+
+<body>
+  <canvas id="canvas"></canvas>
+</body>
+
+</html>
+<script type="text/javascript" src="cdn_modules/tensorflow@4.16.0/tf.min.js"></script>
+<script>
+  var canvas=document.getElementById('canvas');
+  canvas.width=300-canvas.offsetLeft;
+  canvas.height=300-canvas.offsetTop;
+  var ctx=canvas.getContext('2d');
+  canvas.ontouchmove=(ev)=>{
+    ctx.beginPath();
+    ctx.arc(ev.touches[0].clientX,ev.touches[0].clientY,10,0,Math.PI*2);
+    ctx.fillStyle="red";
+    ctx.fill();
+  }
+  canvas.ontouchend=()=>{
+    var data=tf.browser.fromPixels(canvas);
+    tf.image.resizeBilinear(data,[10,10]).print();
+  }
+</script>

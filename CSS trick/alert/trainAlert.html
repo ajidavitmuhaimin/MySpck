@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title></title>
+</head>
+
+<body>
+  <h1 id="hw">Hello World</h1>
+  <button onclick="showAlert()">Show</button>
+  <div id="overlay">
+    <div id="alert">
+      <h1>Alert</h1>
+      <br>
+      <button onclick="closeAlert()">Close</button>
+    </div>
+  </div>
+</body>
+
+</html>
+<style>
+  body{
+    margin: 0;
+  }
+  #overlay{
+    left: 0;
+    top: 0;
+    display: none;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    /*backdrop-filter: blur(2px);*/
+    justify-content: center;
+    align-items: center;
+  }
+  #alert{
+    background: white;
+    box-shadow: 0px 0px 10px dimgray;
+    border-radius: 10px;
+    width: 300px;
+    height: 200px;
+  }
+  #hw{
+    transition: 1s;
+  }
+  #hw:hover{
+    color: red;
+  }
+</style>
+<script>
+  function showAlert(){
+    document.getElementById("overlay").style.display="flex";
+  }
+  function closeAlert(){
+    document.getElementById("overlay").style.display="none";
+  }
+</script>

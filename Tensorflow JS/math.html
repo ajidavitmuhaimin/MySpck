@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title></title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+<script type="text/javascript" src="http://127.0.0.1:7700/cdn_modules/tensorflow@4.16.0/tf.min.js"></script>
+<script>
+  var model=tf.sequential();
+  model.add(tf.layers.dense({
+    inputShape:[2],
+    units:4,
+    activation:"relu"
+  }));
+  model.add(tf.layers.dense({
+    units:4,
+    activation:"relu"
+  }));
+  model.compile({
+    optimizer:tf.train.adam(0.0001),
+    loss:"meanSquaredError"
+  });
+  var xs=tf.tensor2d([[0,0],[0,1],[1,0],[1,1]], [4,2]);
+  var ys=tf.tensor2d([[1],[0],[0],[1]], [4,1]);
+  model.fit(xs,ys,{epochs:250});
+  var ex=tf.tensor2d([[0,0],[0,1],[1,0],[1,1]], [4,2]);
+  model.predict(ex).print(); 
+</script>
