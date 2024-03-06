@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title></title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+<script>
+
+function naiveBayes(email) {
+  // Hitung probabilitas apriori
+  const pSpam = 0.5;
+  const pNonSpam = 0.5;
+
+  // Hitung probabilitas kondisional
+  const pFiturSpam = {
+    "viagra": 0.9,
+    "offer": 0.8,
+    "free": 0.7,
+  };
+  const pFiturNonSpam = {
+    "hello": 0.8,
+    "thanks": 0.7,
+    "meeting": 0.6,
+  };
+
+  // Hitung probabilitas P(Spam | Email) dan P(Non-Spam | Email)
+  let pSpamEmail = pSpam;
+  let pNonSpamEmail = pNonSpam;
+  for (const word of email.split(" ")) {
+    pSpamEmail *= pFiturSpam[word] || 0.01;
+    pNonSpamEmail *= pFiturNonSpam[word] || 0.01;
+  }
+  // Klasifikasi email
+  if (pSpamEmail > pNonSpamEmail) {
+    return "Spam";
+  } else {
+    return "Non-Spam";
+  }
+}
+
+// Contoh penggunaan
+const email = "Hello, thanks for meet this meeting";
+const prediction = naiveBayes(email);
+console.log(prediction); // "Spam"
+  
+</script>

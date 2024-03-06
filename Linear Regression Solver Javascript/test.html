@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title></title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+<script>
+  
+  var data=[
+    [1,2],
+    [2,4],
+    [3,5],
+    [4,4],
+    [5,5]
+    ];
+  var meanX=data.reduce((sum,point)=>sum+point[0],0)/data.length;
+  var meanY=data.reduce((sum,point)=>sum+point[1],0)/data.length;
+  
+  var b=data.reduce((sum,point)=>sum+(point[0]-meanX)*(point[1]-meanY),0)/data.reduce((sum,point)=>sum+(point[0]-meanX)**2,0);
+    
+  var a=meanY-b*meanX;
+  var rl=(x)=>a+b*x;
+  console.log(rl(0));
+  
+</script>

@@ -15,7 +15,8 @@
 <script>
   //sample data as array
   var x=[1,2,3,4,5];
-  var y=[2,4,5,4,5];
+  var z=[2,4,5,4,5];
+  var y=[0,1,0,1,1];
   //finding mean value
   //mean=sum+value/length
   var mean=(array)=>{
@@ -27,6 +28,7 @@
     var numerator=x.reduce((prev,next,index)=>prev+(next-meanX)*(y[index]-meanY),0);
     //find denominator
     var denominator=x.reduce((prev,next)=>Math.pow(next-meanX,2)+prev,0);
+    
     return {numerator,denominator};
   }
   //get slope and intercept data
@@ -44,6 +46,7 @@
   var meanY=mean(y);
   var {numerator,denominator}=calculate(x,y,meanX,meanY);
   var {slope,intercept}=process(numerator,denominator,meanX,meanY);
-  var result=mxplusb(0,slope,intercept);
+  var result=mxplusb(10,slope,intercept);
   console.log(result);
+  console.log(slope);
 </script>
