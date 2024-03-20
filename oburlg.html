@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title></title>
+</head>
+
+<body>
+<input type="file" id="container">
+<img id="view">
+</body>
+
+</html>
+<script>
+  var container=document.getElementById('container');
+  var view=document.getElementById('view');
+  container.onchange=(ev)=>{
+    console.log(URL.createObjectURL(container.files[0]));
+    view.src=URL.createObjectURL(container.files[0]);
+    alert(URL.createObjectURL(container.files[0]));
+  }
+</script>

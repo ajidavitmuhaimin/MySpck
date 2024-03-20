@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title></title>
+</head>
+
+<body>
+  <h1>Hello World</h1>
+  <button id="btnShow">Show</button>
+  <div id="overlay">
+    <div id="box">
+      <h2>This is a alert?</h2>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium amet, nisi recusandae, excepturi, quaerat neque assumenda esse iste est inventore, odio labore accusamus magni incidunt perferendis enim rerum ipsa officia!</p>
+      <button id="btnHide">Hide</button>
+      <br>
+    </div>
+  </div>
+</body>
+
+</html>
+<style>
+  
+  html,body{
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+    font-family: sans-serif;
+  }
+  button{
+    width: 100px;
+    height: 40px;
+    background: transparent;
+    border: 1px solid grey;
+    font-weight: bold;
+    border-radius: 20px;
+    transition: 100ms;
+  }
+  button:hover{
+    transform: scale(0.9);
+  }
+  #overlay{
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.5);
+    display: none;
+  }
+  #box{
+    position: fixed;
+    width: 100vw;
+    /*height: 180px;*/
+    left: 0;
+    bottom: 0;
+    background: white;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 0px;
+  }
+</style>
+<script>
+  
+  var btnShow=document.getElementById('btnShow');
+  var btnHide=document.getElementById('btnHide');
+  var overlay=document.getElementById('overlay');
+  
+  btnShow.onclick=()=>{
+    overlay.style.display='flex';
+  }
+  btnHide.onclick=()=>{
+    overlay.style.display='none';
+  }
+  
+</script>

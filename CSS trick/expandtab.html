@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title></title>
+</head>
+
+<body>
+  <input type="checkbox" id="chk">
+  <input type="range">
+  <br>
+<div id="navbar">
+  navbar
+</div>
+<br>
+<label for="chk">klik ini</label>
+</body>
+
+</html>
+<style>
+  html,body{
+    margin: 0;
+  }
+  #navbar{
+    width: 100vw;
+    height: 0px;
+    transition: 500ms;
+    background: red;
+    overflow-y: hidden;
+  }
+</style>
+<script>
+  var chk=document.getElementById("chk");
+  chk.onchange=function(ev){
+    console.log(chk.checked);
+    if(chk.checked){
+      document.getElementById('navbar').style.height="100px";
+      document.getElementById('navbar').style.opacity="1";
+    }else{
+      document.getElementById('navbar').style.height="0px";
+      document.getElementById('navbar').style.opacity="0";
+    }
+  }
+</script>

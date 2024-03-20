@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title></title>
+</head>
+
+<body>
+  <br><br>
+  <div id="box1">
+    <h6>New Projects</h6>
+  </div>
+  <div id="box2"></div>
+  <div id="box3"></div>
+</body>
+
+</html>
+<style>
+  html,body{
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+  }
+  div{
+    background: url("li.jpg");
+    background-size: 100%;
+    background-position: center;
+    filter: grayscale(1) brightness(65%);
+    width: 200px;
+    height: 200px;
+    transition: 0.5s;
+  }
+  div:hover{
+    width: 220px;
+    height: 220px;
+    filter: grayscale(0);
+    /*background-size: 110%;*/
+  }
+</style>

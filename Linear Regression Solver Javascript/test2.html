@@ -14,6 +14,49 @@
 </html>
 <script>
 
-  
 
+  function naive(email){
+  //p apriori
+  var pSpam=0.5;
+  var pNonSpam=0.5;
+  
+  //p kondisional
+  var pFiturSpam={
+    "viagra":0.9,
+    "offer":0.8,
+    "free":0.7,
+    "cheap":0.6
+  }
+  var pFiturNonSpam={
+    "hello":0.8,
+    "thanks":0.7,
+    "meeting":0.6,
+    "year":0.7
+  }
+  
+  var pSpamEmail;
+  var pNonSpamEmail;
+  
+  for(var word of email.split(" ")){
+    /*pSpamEmail*=pFiturSpam[word]||0.01;
+    pNonSpamEmail*=pFiturNonSpam[word]||0.01;*/
+    pSpamEmail=pSpam*pFiturSpam[word]||0.01;
+    pNonSpamEmail=pNonSpam*pFiturNonSpam[word]||0.01;
+    console.log("hehe"+word);
+    
+  }
+  
+  //klasifikasi dgn banding
+  if(pSpamEmail>pNonSpamEmail){
+    return "Spam ";
+  }else{
+    return "Non spam ";
+  }
+  
+}
+
+var email="Hello, we meeting a new product cheap meeting viagra";
+console.log(naive(email));
+
+console.log(navigator);
 </script>
