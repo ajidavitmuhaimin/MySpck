@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title></title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+<script>
+  
+  var email="Hello nice you are welcome".toLowerCase();
+  var pNegative=0.5;
+  var pPositive=0.5;
+  
+  var pFNegative={
+    "fuck":0.8,
+    "suck":0.8,
+    "bitch":0.7,
+    "idiot":0.7
+  };
+  var pFPositive={
+    "welcome":0.6,
+    "good":0.7,
+    "nice":0.6,
+    "hello":0.6
+  };
+  
+  var pNegatives;
+  var pPositives;
+  
+  for(var word of email.split(' ')){
+    pNegatives=pNegative*pFNegative[word]||0.1;
+    pPositives=pPositive*pFPositive[word]||0.1;
+  }
+  
+  if(pNegatives>pPositives){
+    console.log("Negative comment");
+    console.table({"Negative":pNegatives,"Positive":pPositives});
+  }else{
+    console.log("Positive comment");
+    console.table({"Negative":pNegatives,"Positive":pPositives});
+  }
+</script>
